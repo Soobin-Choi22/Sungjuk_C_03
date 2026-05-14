@@ -9,3 +9,4 @@ sequenceDiagram
     P-->>-S: true
     S->>S: 평균 기준 학점 판별
     S-->>-UI: 학점 결과(A/B/C) 반환
+```
