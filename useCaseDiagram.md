@@ -1,17 +1,19 @@
-```mermaid
-usecaseDiagram
-    actor "교수" as Prof
+flowchart LR
+    %% 1. 액터 정의 (원형 모양)
+    Prof((교수))
     
-    package "성적 처리 시스템" {
-        usecase "성적입력" as UC\_Input
-        usecase "학점조회" as UC\_Search
-        usecase "교수체크" as UC\_Check
-    }
+    %% 2. 시스템 경계 정의 (subgraph 사용)
+    subgraph System [성적 처리 시스템]
+        direction TB
+        UC_Input([성적입력])
+        UC_Search([학점조회])
+        UC_Check([교수체크])
+    end
     
-    Prof --> UC\_Input
-    Prof --> UC\_Search
+    %% 3. 액터와 유스케이스 간의 관계 (실선)
+    Prof --> UC_Input
+    Prof --> UC_Search
     
-    %% 포함 관계: 성적입력과 학점조회 시 반드시 교수체크 수행
-    UC\_Input ..> UC\_Check : <<include>>
-    UC\_Search ..> UC\_Check : <<include>>
-
+    %% 4. 포함(include) 관계 (점선 화살표 및 라벨)
+    UC_Input -. "<<include>>" .-> UC_Check
+    UC_Search -. "<<include>>" .-> UC_Check
