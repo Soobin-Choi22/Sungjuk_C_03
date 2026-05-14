@@ -1,0 +1,11 @@
+```mermaid
+sequenceDiagram
+    autonumber
+    participant UI as Search_Sungjuk_UI
+    participant S as 성적
+    participant P as 교수
+    UI->>+S: 학점조회(교수id)
+    S->>+P: 교수체크(교수id)
+    P-->>-S: true
+    S->>S: 평균 기준 학점 판별
+    S-->>-UI: 학점 결과(A/B/C) 반환
