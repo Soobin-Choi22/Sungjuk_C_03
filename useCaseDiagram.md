@@ -1,3 +1,4 @@
+```mermaid
 flowchart LR
     %% 1. 액터 정의 (원형 모양)
     Prof((교수))
